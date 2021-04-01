@@ -3,7 +3,6 @@
 
 int main(int argc, char **argv) {
 	std::cout << "Hello, from Client!" << std::endl;
-
 	MPI_Init(&argc, &argv);
 
 	int initial_rank;
@@ -15,6 +14,7 @@ int main(int argc, char **argv) {
 
 	MPI_Comm inter_comm;
 	if (initial_rank == 0) {
+		std::cout << "Looking up name!" << std::endl;
 		MPI_Lookup_name("Test", MPI_INFO_NULL, port_name);
 		std::cout << "Name lookup done: " << port_name << std::endl;
 	}
